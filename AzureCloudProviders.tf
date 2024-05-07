@@ -8,5 +8,9 @@ terraform {
 }
 
 provider "azurerm" {
-  # Configuration options
+  # Configuration options chsnge
+  /*
+    Multi line comment
+  */
+  features {}
 }
