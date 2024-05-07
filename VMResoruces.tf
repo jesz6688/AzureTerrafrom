@@ -1,11 +1,11 @@
 resource "azurerm_virtual_machine" "vm1" {
-  name                  = "testetstetestvm"
-  resource_group_name   = "TerraformRG"
-  location              = "East US"
+  name                  = "testvm"
+  resource_group_name   = "1-f8b8e0df-playground-sandbox"
+  location              = "West US"
   network_interface_ids = [azurerm_network_interface.nic1.id]
   vm_size               = "Standard_DS1_v2"
   storage_os_disk {
-    name = "vishnudisk1"
+    name = "syeddisk1"
     caching = "ReadWrite"
     managed_disk_type = "Standard_LRS"
     create_option = "FromImage"
@@ -17,12 +17,12 @@ resource "azurerm_virtual_machine" "vm1" {
   storage_image_reference {
     publisher = "Canonical"
     offer = "UbuntuServer"
-    sku = "16.04-LTS"
+    sku = "20.04-LTS"
     version = "latest"
   }
   os_profile {
     computer_name  = "trainingsystem"
-    admin_username = "trainingadmin"
+    admin_username = "azureuser"
     admin_password = "Accenture123$$"
   }
 
@@ -39,22 +39,22 @@ resource "azurerm_virtual_machine" "vm1" {
 resource "azurerm_virtual_network" "vnet1" {
   name                = "testetstetest"
   address_space       = ["10.0.0.0/16"]
-  location            = "East US"
-  resource_group_name = "TerraformRG"
+  location            = "West US"
+  resource_group_name = "1-f8b8e0df-playground-sandbox"
 }
 
 
 resource "azurerm_subnet" "subnet1" {
   name                 = "hrmante"
-  resource_group_name  = "TerraformRG"
+  resource_group_name  = "1-f8b8e0df-playground-sandbox"
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "nic1" {
   name                = "vishnunic111"
-  location            = "East US"
-  resource_group_name = "TerraformRG"
+  location            = "West US"
+  resource_group_name = "1-f8b8e0df-playground-sandbox"
 
   ip_configuration {
     name                          = "config111"
@@ -66,8 +66,8 @@ resource "azurerm_network_interface" "nic1" {
 
 resource "azurerm_public_ip" "public1" {
   name = "testetstetest-tywteywgjh"
-  resource_group_name = "TerraformRG"
-  location = "East US"
+  resource_group_name = "1-f8b8e0df-playground-sandbox"
+  location = "West US"
   allocation_method = "Static"
 
   tags = {
