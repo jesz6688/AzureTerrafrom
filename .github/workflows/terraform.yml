@@ -18,12 +18,12 @@ jobs:
     # Set the working directory to main for the config files
     environment: production
     steps:
-#       - name: install azure CLI
-#         run: sudo apt-get -y install azure-cli 
-#       - name: azure login
-#         uses: Azure/login@v1.4.4
-#         with:
-#           creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+      - name: install azure CLI
+        run: sudo apt-get -y install azure-cli 
+      - name: azure login
+        uses: Azure/login@v1.4.4
+        with:
+          creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
           
       
     # Checkout the repository to the GitHub Actions runner
