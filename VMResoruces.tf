@@ -14,11 +14,11 @@ resource "azurerm_virtual_machine" "vm1" {
   
   delete_data_disks_on_termination = true
 
-  storage_image_reference {
+  source_image_reference {
     publisher = "Canonical"
-    offer = "UbuntuServer"
-    sku = "20.04-LTS"
-    version = "latest"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"
+    version   = "latest"
   }
   os_profile {
     computer_name  = "trainingsystem"
