@@ -23,7 +23,7 @@ resource "azurerm_virtual_machine" "vm1" {
   os_profile {
     computer_name  = "trainingsystem"
     admin_username = "azureuser"
-    admin_password = "Accenture123$$"
+    admin_password = "Accenture@123"
   }
 
   os_profile_linux_config {
