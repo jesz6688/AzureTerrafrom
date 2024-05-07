@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "vm1" {
   resource_group_name   = "1-f8b8e0df-playground-sandbox"
   location              = "West US"
   network_interface_ids = [azurerm_network_interface.nic1.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = "Standard_D2s_v3"
   storage_os_disk {
     name = "syeddisk1"
     caching = "ReadWrite"
