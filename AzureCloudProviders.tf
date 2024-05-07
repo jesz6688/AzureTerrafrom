@@ -13,4 +13,5 @@ provider "azurerm" {
     Multi line comment
   */
   features {}
+  skip_provider_registration = true
 }
