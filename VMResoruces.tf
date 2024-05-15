@@ -57,7 +57,7 @@ resource "azurerm_network_interface" "nic1" {
   resource_group_name = "1-fb4b4b74-playground-sandbox"
 
   ip_configuration {
-    name                          = "config111"
+    name                          = "config121"
     subnet_id                     = azurerm_subnet.subnet1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id =azurerm_public_ip.public1.id
