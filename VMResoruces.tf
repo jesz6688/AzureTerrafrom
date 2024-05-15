@@ -1,7 +1,7 @@
 resource "azurerm_virtual_machine" "vm1" {
   name                  = "tryterraformvm1"
-  resource_group_name   = "1-fb4b4b74-playground-sandbox"
-  location              = "West US"
+  resource_group_name   = var.resource_group_name
+  location              = var.location
   network_interface_ids = [azurerm_network_interface.nic1.id]
   vm_size               = "Standard_D2s_v3"
   storage_os_disk {
@@ -39,25 +39,25 @@ resource "azurerm_virtual_machine" "vm1" {
 resource "azurerm_virtual_network" "vnet1" {
   name                = "tryterraformvnet1"
   address_space       = ["10.0.0.0/16"]
-  location            = "West US"
-  resource_group_name = "1-fb4b4b74-playground-sandbox"
+  location              = var.location
+  resource_group_name   = var.resource_group_name
 }
 
 
 resource "azurerm_subnet" "subnet1" {
   name                 = "tryterraformsubnet1"
-  resource_group_name  = "1-fb4b4b74-playground-sandbox"
+  resource_group_name   = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "nic1" {
   name                = "tryterraformnic1"
-  location            = "West US"
-  resource_group_name = "1-fb4b4b74-playground-sandbox"
+  location              = var.location
+  resource_group_name   = var.resource_group_name
 
   ip_configuration {
-    name                          = "config121"
+    name                          = "config111"
     subnet_id                     = azurerm_subnet.subnet1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id =azurerm_public_ip.public1.id
@@ -66,8 +66,8 @@ resource "azurerm_network_interface" "nic1" {
 
 resource "azurerm_public_ip" "public1" {
   name = "tryterraformpubip1"
-  resource_group_name = "1-fb4b4b74-playground-sandbox"
-  location = "West US"
+  resource_group_name   = var.resource_group_name
+  location              = var.location
   allocation_method = "Static"
 
   tags = {
