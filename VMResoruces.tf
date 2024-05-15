@@ -1,6 +1,6 @@
 resource "azurerm_virtual_machine" "vm1" {
-  name                  = "testvm"
-  resource_group_name   = "1-f8b8e0df-playground-sandbox"
+  name                  = "tryterraformvm1"
+  resource_group_name   = "1-fb4b4b74-playground-sandbox"
   location              = "West US"
   network_interface_ids = [azurerm_network_interface.nic1.id]
   vm_size               = "Standard_D2s_v3"
@@ -37,24 +37,24 @@ resource "azurerm_virtual_machine" "vm1" {
 }
 
 resource "azurerm_virtual_network" "vnet1" {
-  name                = "testetstetest"
+  name                = "tryterraformvnet1"
   address_space       = ["10.0.0.0/16"]
   location            = "West US"
-  resource_group_name = "1-f8b8e0df-playground-sandbox"
+  resource_group_name = "1-fb4b4b74-playground-sandbox"
 }
 
 
 resource "azurerm_subnet" "subnet1" {
-  name                 = "hrmante"
-  resource_group_name  = "1-f8b8e0df-playground-sandbox"
+  name                 = "tryterraformsubnet1"
+  resource_group_name  = "1-fb4b4b74-playground-sandbox"
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "nic1" {
-  name                = "vishnunic111"
+  name                = "tryterraformnic1"
   location            = "West US"
-  resource_group_name = "1-f8b8e0df-playground-sandbox"
+  resource_group_name = "1-fb4b4b74-playground-sandbox"
 
   ip_configuration {
     name                          = "config111"
@@ -65,8 +65,8 @@ resource "azurerm_network_interface" "nic1" {
 }
 
 resource "azurerm_public_ip" "public1" {
-  name = "testetstetest-tywteywgjh"
-  resource_group_name = "1-f8b8e0df-playground-sandbox"
+  name = "tryterraformpubip1"
+  resource_group_name = "1-fb4b4b74-playground-sandbox"
   location = "West US"
   allocation_method = "Static"
 
