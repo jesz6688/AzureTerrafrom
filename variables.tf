@@ -7,3 +7,8 @@ variable "location" {
   type = string
   default = "southcentralus"
 }
+
+variable "vm_name" {
+  type = string
+  default = "dockerdrupalvm"
+}
