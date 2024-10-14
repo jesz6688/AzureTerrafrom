@@ -1,5 +1,5 @@
 resource "azurerm_virtual_machine" "vm1" {
-  name                  = var.vm_name ## "tryterraformvm2"
+  name                  = var.vm_name 
   resource_group_name   = var.resource_group_name
   location              = var.location
   network_interface_ids = [azurerm_network_interface.nic1.id]
@@ -68,7 +68,7 @@ resource "azurerm_public_ip" "public1" {
   name = "tryterraformpubip1"
   resource_group_name   = var.resource_group_name
   location              = var.location
-  allocation_method = "Dynamic" #Static
+  allocation_method = "Static" 
   domain_name_label = azurerm_virtual_machine.vm1.name
 
   tags = {
