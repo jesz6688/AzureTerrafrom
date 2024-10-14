@@ -1,5 +1,5 @@
 resource "azurerm_virtual_machine" "vm1" {
-  name                  = var.vm_name #"tryterraformvm2"
+  name                  = var.vm_name ## "tryterraformvm2"
   resource_group_name   = var.resource_group_name
   location              = var.location
   network_interface_ids = [azurerm_network_interface.nic1.id]
