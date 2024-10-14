@@ -69,7 +69,6 @@ resource "azurerm_public_ip" "public1" {
   resource_group_name   = var.resource_group_name
   location              = var.location
   allocation_method = "Static" 
-  domain_name_label = azurerm_virtual_machine.vm1.name
 
   tags = {
     "environment" = "dev"
