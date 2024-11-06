@@ -1,6 +1,6 @@
 variable "resource_group_name" {
   type = string
-  default = "1-4dec2be5-playground-sandbox"
+  default = "1-96cb0170-playground-sandbox"
 }
 
 variable "location" {
@@ -10,5 +10,5 @@ variable "location" {
 
 variable "vm_name" {
   type = string
-  default = "dockerdrupalvm"
+  default = "tryafter3weeks"
 }
