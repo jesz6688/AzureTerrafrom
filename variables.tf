@@ -1,16 +1,16 @@
 variable "resource_group_name" {
   type = string
-  default = "1-eab8f8ee-playground-sandbox"
+  default = "1-ba821f84-playground-sandbox"
 }
 
 variable "location" {
   type = string
-  default = "eastus"
+  default = "southcentralus"
 }
 
 variable "vm_name" {
   type = string
-  default = "dockervmwindows"
+  default = "dockervmlinux"
 }
 
 variable "azurerm_public_ip" {
