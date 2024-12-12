@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "vm1" {
   resource_group_name   = var.resource_group_name
   location              = var.location
   network_interface_ids = [azurerm_network_interface.nic1.id]
-  vm_size               = "Standard_D2s_v3"
+  vm_size               = "Standard DS3 v2"
   storage_os_disk {
     name = "syeddisk1"
     caching = "ReadWrite"
@@ -37,7 +37,7 @@ resource "azurerm_virtual_machine" "vm1" {
 }
 
 resource "azurerm_virtual_network" "vnet1" {
-  name                = "tryterraformvnet1"
+  name                = var.azurerm_virtual_network
   address_space       = ["10.0.0.0/16"]
   location              = var.location
   resource_group_name   = var.resource_group_name
@@ -45,14 +45,14 @@ resource "azurerm_virtual_network" "vnet1" {
 
 
 resource "azurerm_subnet" "subnet1" {
-  name                 = "tryterraformsubnet1"
+  name                 = var.azurerm_subnet
   resource_group_name   = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "nic1" {
-  name                = "tryterraformnic1"
+  name                = var.azurerm_network_interface
   location              = var.location
   resource_group_name   = var.resource_group_name
 
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "nic1" {
 }
 
 resource "azurerm_public_ip" "public1" {
-  name = "tryterraformpubip1"
+  name = var.azurerm_public_ip
   resource_group_name   = var.resource_group_name
   location              = var.location
   allocation_method = "Static" 
