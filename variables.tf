@@ -1,11 +1,11 @@
 variable "resource_group_name" {
   type = string
-  default = "1-ba821f84-playground-sandbox"
+  default = "1-7ff20d33-playground-sandbox"
 }
 
 variable "location" {
   type = string
-  default = "southcentralus"
+  default = "westus"
 }
 
 variable "vm_name" {
